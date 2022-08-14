@@ -1,0 +1,23 @@
+FROM nginx:1.15.0-alpine
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
+
+RUN mkdir /var/www/html -p && touch /var/www/html/index.php
+
+#Diretório que vou trabalhar dentro do container
+#Entra por padrão quando roda o container
+#WORKDIR /app 
+
+#Roda os comandos no bash
+#RUN apt-get update && \
+#    apt-get install vim -y
+
+#Copia conteúdo da pasta html para a /usr/share/nginx/html
+#COPY html/ /usr/share/nginx/html
+
+#comando fixo
+#ENTRYPOINT ["/docker-entrypoint.sh"]
+
+#comando variável
+#CMD ["nginx", "-g", "daemon off;"]
